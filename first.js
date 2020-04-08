@@ -1,3 +1,5 @@
+'use strict';
+
 let maney, time;
 
 function start (){
@@ -8,15 +10,13 @@ while(isNaN(maney)||maney == ""|| maney == null){
     maney = +prompt("Ваш бюджет на месяц?");
 }
 
-}
-
 
 start();
 
 
 
 let appData = { 
-budget : maney,
+budget :maney,
 timeData: time,
 expenses:{},
 optionalExpenses : {},
@@ -29,7 +29,8 @@ function chooseExpenses(){
     for(let i =0; i<2; i++){
         let a = prompt("Введите обязательную статью расходов в этом месяце");
         let b = prompt("Во сколько обойдется?");
-         if( (typeof(a)) === "string" && (typeof(a)) !=null  && (typeof(b))!=null && a !="" && b !="" && a.length <30 && b.length <30){
+         if( (typeof(a)) === "string" && (typeof(a)) !=null &&
+          (typeof(b))!=null && a !="" && b !="" && a.length <30 && b.length <30){
              console.log("done");
             appData.expenses[a] = b;
     
@@ -41,36 +42,7 @@ function chooseExpenses(){
 
 }
 chooseExpenses();
-// let i = 0;
-// while(i<2){
-//     let a = prompt("Введите обязательную статью расходов в этом месяце");
-//     let b = prompt("Во сколько обойдется?");
-//      if( (typeof(a)) === "string" && (typeof(a)) !=null  && (typeof(b))!=null && a !="" && b !="" && a.length <30 && b.length <30){
-//          console.log("done");
-//         appData.expenses[a] = b;
 
-//      }else{
-    // console.log("не верно");
-    // i--;
-//      }
-// i++;
-// }
-
-
-// let i = 0;
-
-// do{
-//     let a = prompt("Введите обязательную статью расходов в этом месяце");
-//     let b = prompt("Во сколько обойдется?");
-//      if( (typeof(a)) === "string" && (typeof(a)) !=null  && (typeof(b))!=null && a !="" && b !="" && a.length <30 && b.length <30){
-//          console.log("done");
-//         appData.expenses[a] = b;
-
-//      }else{
-//         console.log("не верно");
-//         i--;
-//      } i++;
-// }while(i<2);
 
 
 function detectDayBudget(){
@@ -108,7 +80,7 @@ checkSavings();
 
 function chooseOptExpenses(){
 
-for (let i = 1; i < 3, i++){
+for (let i = 1; i < 3; i++){
     let questionOptExpenses = prompt("Статья не обязательных расходов?");
 
 appData.optionalExpenses[i] = questionOptExpenses;
